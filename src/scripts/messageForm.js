@@ -34,9 +34,24 @@ const messageForm = {
 
         messageInputField.appendChild(messageInputLabel);
         messageInputField.appendChild(messageInputBox);
+        // Create save button
+        let submitButton = document.createElement("button");
+        submitButton.textContent = "Send"
+        submitButton.setAttribute("class", "messageSend");
+
+        submitButton.addEventListener("click", this.handleAddNewMessage);
+        console.log("click", click)
+
+        let messageFormFragment = document.createDocumentFragment()
+        messageFormFragment.appendChild(formHeader);
+        messageFormFragment.appendChild(messageNameField);
+        messageFormFragment.appendChild(messageInputField);
+        messageFormFragment.appendChild(submitButton);
 
 
 
 
     }
 }
+
+export default messageForm
