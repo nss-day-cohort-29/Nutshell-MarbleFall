@@ -1,8 +1,29 @@
 {
-    "users": [],
-    "messages": [],
-    "News": [],
-    "tasks": [],
-    "events": [],
-    "friends": []
-  }
+  "users": [],
+  "messages": [],
+  "news": [
+    {
+      "title": "2019 Titans raise awareness",
+      "url": "https://www.titansonline.com/news/nissan-stadium-turns-red-on-friday-to-raise-awareness-for-heart-disease-in-women",
+      "summary": "Nissan Stadium Turns Red on Friday to Raise Awareness for Heart Disease in Women."
+    },
+    {
+      "title": "Awesome Ears",
+      "url": "https://www.knowablemagazine.org/article/living-world/2018/how-do-insects-hear",
+      "summary": "The science of how insects hear"
+    },
+    {
+      "title": "2019 State of the Union address",
+      "url": "https://www.nbcnews.com/storyline/smart-facts/2019-state-union-address-what-you-need-know-n956921",
+      "summary": "What you need to know or the 2019 State Of The Union Address"
+    },
+    {
+      "title": "2019 AI News",
+      "url": "https://www.artificialintelligence-news.com/2019/01/24/why-microsoft-leads-the-ai-patent-race-going-into-2019/",
+      "summary": "Why Microsoft leads the AI patent race going into 2019"
+    }
+  ],
+  "tasks": [],
+  "events": [],
+  "friends": []
+}
