@@ -1,3 +1,6 @@
+import messageCollection from "./messageCollection"
+import messageList from "./messageList"
+
 const messageForm = {
 
     clearInputForm() {
@@ -27,7 +30,7 @@ const messageForm = {
 
         let messageInputLabel = document.createElement("label");
         messageInputLabel.placeholder = "Type Message "
-        massageInputLabel.setAttribute("for", "messageContent");
+        messageInputLabel.setAttribute("for", "messageContent");
         let messageInputBox = document.createElement("textarea");
         messageInputBox.setAttribute("id", "messageContent");
         messageInputBox.setAttribute("name", "messageContent");
@@ -40,7 +43,7 @@ const messageForm = {
         submitButton.setAttribute("class", "messageSend");
 
         submitButton.addEventListener("click", this.handleAddNewMessage);
-        console.log("click", click)
+        console.log("click")
 
         let messageFormFragment = document.createDocumentFragment()
         messageFormFragment.appendChild(formHeader);
@@ -48,6 +51,8 @@ const messageForm = {
         messageFormFragment.appendChild(messageInputField);
         messageFormFragment.appendChild(submitButton);
 
+        let formArticle = document.querySelector(".form__messages");
+        formArticle.appendChild(messageFormFragment);
 
 
 
