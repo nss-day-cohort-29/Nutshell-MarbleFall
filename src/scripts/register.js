@@ -32,7 +32,7 @@ const registrationForm = {
     registerContainer.appendChild(userEmailInput)
     registerContainer.appendChild(createNewUser)
 
-    createNewUser.addEventListener("click", this.registerUser)    
+    createNewUser.addEventListener("click", this.registerUser)
     },
 
     registerUser () {
@@ -51,6 +51,5 @@ const registrationForm = {
         login.replaceWithLoginForm();
     }
 
-        
 }
   export default registrationForm

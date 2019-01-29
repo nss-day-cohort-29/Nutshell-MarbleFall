@@ -7,7 +7,7 @@ if (sessionStorage.userId === undefined) {
   login.createAndAppendLoginInput();
   registrationForm.createAndAppendRegistrationForm();
   console.log(sessionStorage.userId)
-} 
+}
 if (sessionStorage.userId >= 1) {
   logout.createAndAppendLogout();
   console.log(sessionStorage.userId)

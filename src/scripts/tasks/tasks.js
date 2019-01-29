@@ -16,16 +16,16 @@ const tasks = {
     })
     const taskOutputSection = document.createElement("article");
     taskOutputSection.setAttribute("id", `task--${taskObj.id}`)
-    taskOutputSection.setAttribute("class", `edit`)
+    taskOutputSection.setAttribute("class", "edit")
     taskArticle.appendChild(taskOutputSection);
-    
+
     taskOutputSection.appendChild(taskName);
     taskOutputSection.appendChild(taskDueDate);
     taskOutputSection.appendChild(taskCheckBox);
-    
+
     taskDueDate.textContent = taskObj.dueDate;
     taskName.textContent = taskObj.title;
-    
+
     const taskEditButton = document.createElement("button");
     taskOutputSection.appendChild(taskEditButton);
     taskEditButton.textContent = "Edit";

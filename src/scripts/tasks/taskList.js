@@ -12,7 +12,7 @@ const taskList = {
                     tasks.taskBuilder(task);
                 }
             });
-        }) 
+        })
     }
 
 }

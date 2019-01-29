@@ -25,9 +25,6 @@ const taskEditForm = {
 
     taskDueDateField.appendChild(taskDueDateLabel)
     taskDueDateField.appendChild(taskDueDateInput)
-
-    
-
     let updateButton = document.createElement("button")
     updateButton.textContent = "Update"
 
@@ -41,7 +38,6 @@ const taskEditForm = {
         userId: currentUserId,
         complete: false
       }
-      
       API.putExistingTask(taskObjToEdit.id, editedTask)
       .then(response => {
         taskList.listTasks();
@@ -50,7 +46,6 @@ const taskEditForm = {
       while (taskItemArticle.firstChild) {
         taskItemArticle.removeChild(taskItemArticle.firstChild);
       }
-      
     })
 
     // We passed in the id of the article so we know exactly where to append the edit form.

@@ -56,7 +56,6 @@ const taskForm = {
           })
 
     }
-    
 }
 
 export default taskForm

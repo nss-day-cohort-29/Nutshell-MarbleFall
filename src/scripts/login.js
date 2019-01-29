@@ -40,12 +40,12 @@ const login = {
             allUsers.forEach(user => {
                 if (username === user.userName && password === user.password) {
                     console.log(`${user.userName} with user ID ${user.id} is the current user`)
-                    sessionStorage.setItem('userId', user.id)
-                    let userId = sessionStorage.getItem('userId');
-                    sessionStorage.setItem('userName', user.userName)
-                    
+                    sessionStorage.setItem("userId", user.id)
+                    let userId = sessionStorage.getItem("userId");
+                    sessionStorage.setItem("userName", user.userName)
+
                     loadUserSpecificPage(userId);
-                    
+
                 } else if (usersProcessed === allUsers.length) {
                     alert("Username/password invalid. If new user, please register. :)")
                 } else {
@@ -59,7 +59,7 @@ const login = {
                     const taskContainer = document.querySelector(".output__tasks");
                     dashboard.textContent = "Dashboard";
                     taskContainer.appendChild(dashboard);
-                    
+
                     location.reload();
 
                     // friendsList.getFriendsList()
@@ -67,15 +67,13 @@ const login = {
                     taskForm.taskFormBuilder();
                     taskList.listTasks();
 
-                } 
+                }
             })
 
 
-            
-        
         })
-        
-     }, 
+
+     },
         replaceWithRegistrationForm() {
             console.log("testing");
             const registrationPage = document.querySelector(".output__registration")
@@ -89,7 +87,6 @@ const login = {
             registrationPage.style.display = "none";
         }
         }
-    
 
 
 export default login
