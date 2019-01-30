@@ -24,7 +24,7 @@ const message = {
     editMessageButton.addEventListener("click", () => {
         let articleId = event.target.id
         let messageId = articleId.split("--")[1]
-        messageCollection.getMessage(messageId)
+        messageCollection.getAllMessages(messageId)
         .then(response => {
             messageEditForm.createAndAppendForm(articleId, response);
         })
@@ -33,7 +33,7 @@ const message = {
     let deleteMessageButton = document.createElement("button");
     deleteMessageButton.textContent = "Delete Button"
     deleteMessageButton.addEventListener("click", () => {
-        let messageId = event.target.id.split("--")[1]
+        let messageId = event.target.parentNode.id.split("--")[1]
         messageCollection.deleteMessage(messageId)
         .then(response => {
             messageList.addMessageToDom()
@@ -45,6 +45,8 @@ const message = {
     messageArticle.appendChild(messageName);
     messageArticle.appendChild(messageContent);
     messageArticle.appendChild(date);
+    messageArticle.appendChild(editMessageButton);
+    messageArticle.appendChild(deleteMessageButton);
     messageArticle.appendChild(horizontalRule);
 
     return messageArticle
