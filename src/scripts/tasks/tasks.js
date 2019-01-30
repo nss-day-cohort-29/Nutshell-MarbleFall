@@ -3,7 +3,7 @@ import taskEditForm from "./taskEditForm"
 import taskList from "./taskList";
 
 const tasks = {
-  taskBuilder(taskObj) {
+  taskBuilder(taskObj, taskId, taskToEdit) {
     const taskArticle = document.querySelector(".output__tasksedit")
     const taskName = document.createElement("h4");
     const taskDueDate = document.createElement("p");
@@ -11,9 +11,13 @@ const tasks = {
     taskCheckBox.className = "checkbox1"
     taskCheckBox.type = "checkbox";
     const checkmarktruefalse = document.querySelector(".checkbox1")
+    taskCheckBox.checked =  taskObj.complete
+    console.log(taskCheckBox.checked)
     taskCheckBox.addEventListener("click", () => {
-      console.log(checkmarktruefalse)
-    })
+      taskObj.complete = !taskObj.complete
+      API.putExistingTaskcomplete(taskObj.id , taskObj)
+      .then(response => response.json)
+        })
     const taskOutputSection = document.createElement("article");
     taskOutputSection.setAttribute("id", `task--${taskObj.id}`)
     taskOutputSection.setAttribute("class", "edit")
@@ -33,9 +37,9 @@ const tasks = {
       let articleId = event.target.parentNode.id;
       let taskId = articleId.split("--")[1];
       API.getTask(taskId)
-      .then(response => {
-        taskEditForm.createAndAppendForm(articleId, response)
-      })
+        .then(response => {
+          taskEditForm.createAndAppendForm(articleId, response)
+        })
     })
     const taskDeleteButton = document.createElement("button");
     taskOutputSection.appendChild(taskDeleteButton);
@@ -44,11 +48,12 @@ const tasks = {
       document.querySelector(".output__tasksedit").innerHTML = " "
       let taskId = event.target.parentNode.id.split("--")[1]
       API.deleteTask(taskId)
-      .then(response => {
-        taskList.listTasks();
-      })
+        .then(response => {
+          taskList.listTasks();
+        })
     })
   }
 }
 
 export default tasks
+
