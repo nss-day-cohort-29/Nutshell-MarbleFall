@@ -7,17 +7,23 @@ const tasks = {
     const taskArticle = document.querySelector(".output__tasksedit")
     const taskName = document.createElement("h4");
     const taskDueDate = document.createElement("p");
-    const taskCheckBox = document.createElement("input");
+    let taskCheckBox = document.createElement("input");
     taskCheckBox.className = "checkbox1"
     taskCheckBox.type = "checkbox";
-    const checkmarktruefalse = document.querySelector(".checkbox1")
-    taskCheckBox.checked =  taskObj.complete
-    console.log(taskCheckBox.checked)
+    taskCheckBox.checked = taskObj.complete
     taskCheckBox.addEventListener("click", () => {
+        if (taskCheckBox = true) {
+          document.querySelector(".edit").innerHTML = " "
+        }
+        window.addEventListener("Load", () => {
+          if (taskCheckBox = true) {
+            console.log("hi")
+            document.querySelector(".edit").innerHTML = " "
+          }
       taskObj.complete = !taskObj.complete
-      API.putExistingTaskcomplete(taskObj.id , taskObj)
-      .then(response => response.json)
-        })
+      API.putExistingTaskcomplete(taskObj.id, taskObj)
+        .then(response => response.json)
+    })
     const taskOutputSection = document.createElement("article");
     taskOutputSection.setAttribute("id", `task--${taskObj.id}`)
     taskOutputSection.setAttribute("class", "edit")
@@ -50,10 +56,7 @@ const tasks = {
       API.deleteTask(taskId)
         .then(response => {
           taskList.listTasks();
-        })
-    })
-  }
-}
 
+        })})})}}
 export default tasks
 

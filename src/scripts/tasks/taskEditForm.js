@@ -2,7 +2,7 @@ import API from "../api"
 import taskList from "./taskList"
 
 const taskEditForm = {
-  createAndAppendForm (articleId, taskObjToEdit) {
+  createAndAppendForm(articleId, taskObjToEdit) {
 
     let taskNameField = document.createElement("p")
 
@@ -26,8 +26,8 @@ const taskEditForm = {
     let updateButton = document.createElement("button")
     updateButton.textContent = "Update"
     updateButton.addEventListener("click", () => {
-    const userId = sessionStorage.getItem("userId");
-    const currentUserId = JSON.parse(userId);
+      const userId = sessionStorage.getItem("userId");
+      const currentUserId = JSON.parse(userId);
       let editedTask = {
         title: taskNameInput.value,
         dueDate: taskDueDateInput.value,
@@ -35,9 +35,9 @@ const taskEditForm = {
         complete: false
       }
       API.putExistingTask(taskObjToEdit.id, editedTask)
-      .then(response => {
-        taskList.listTasks();
-      })
+        .then(response => {
+          taskList.listTasks();
+        })
 
       while (taskItemArticle.firstChild) {
         taskItemArticle.removeChild(taskItemArticle.firstChild);
