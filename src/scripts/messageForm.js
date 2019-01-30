@@ -17,7 +17,7 @@ const messageForm = {
         let messageNameField = document.createElement("fieldset");
 
         let messageNameLabel = document.createElement("label");
-        messageNameLabel.placeholder = " Name of Sender"
+        messageNameLabel.textContent = "Name  "
         messageNameLabel.setAttribute("for", "messageName");
         let messageNameInput = document.createElement("input");
         messageNameInput.setAttribute("id", "messageName");
@@ -29,7 +29,7 @@ const messageForm = {
         let messageInputField = document.createElement("fieldset");
 
         let messageInputLabel = document.createElement("label");
-        messageInputLabel.placeholder = "Type Message "
+        messageInputLabel.textContent = "Type Message   "
         messageInputLabel.setAttribute("for", "messageContent");
         let messageInputBox = document.createElement("textarea");
         messageInputBox.setAttribute("id", "messageContent");
@@ -54,8 +54,39 @@ const messageForm = {
         let formArticle = document.querySelector(".form__messages");
         formArticle.appendChild(messageFormFragment);
 
+    },
+    getTimeStamp() {
+        let now = new Date();
+        return((now.getMonth() + 1) + "/" +
+            (now.getDate()) + "/" +
+            now.getFullYear() + " " +
+            now.getHours() + ":" +
+            ((now.getMinutes() < 10)
+              ? ("0" + getMinutes())
+              : (now.getMinutes())) + ":" +
+            ((now.getSeconds() < 10)
+              ? ("0" + now.getSeconds())
+              : (now.getSeconds())));
+    },
 
+    handleAddNewMessage() {
 
+        let inputMessageName = document.querySelector("#messageName");
+        let inputMessageContent = document.querySelector("#messageContent");
+        let inputMessageDate = messageForm.getTimeStamp()
+
+        let newMessage = {
+            senderName: inputMessageName.value,
+            message: inputMessageContent.value,
+            date: inputMessageDate
+        }
+
+        messageCollection.postNewMessage(newMessage)
+            .then(response => {
+                messageList.addMessageToDom()
+
+                messageForm.clearInputForm()
+            })
     }
 }
 

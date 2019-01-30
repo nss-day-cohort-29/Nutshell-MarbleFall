@@ -1,4 +1,3 @@
-import messageForm from "./messageForm"
 
 import taskForm from "./tasks/taskForm"
 import taskList from "./tasks/taskList"
@@ -19,5 +18,9 @@ if (sessionStorage.userId >= 1) {
     let userheader = document.querySelector(".header2")
     userheader.innerHTML = "Welcome " + currentUsername
 }
+import messageForm from "./messageForm"
+import messageList from "./messageList";
+
+messageList.addMessageToDom()
 messageForm.createAndAppendForm()
 
