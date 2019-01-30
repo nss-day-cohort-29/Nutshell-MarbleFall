@@ -40,9 +40,9 @@ const newsDOM = {
       URL: articleURL,
       summary: articleSummary
     };
-    contactCollection.addContact(newContact)
+    API.getNews(newArticle)
       .then(response => {
-        contactList.getAndAppendContacts();
+        allNews.getAndAppendNews();
       });
   },
 };
