@@ -44,7 +44,7 @@ const messageEditForm = {
             })
         })
 
-        let messageItemArticle = document.querySelector(`${articleId}`)
+        let messageItemArticle = document.querySelector(".form__messages")
 
         while (messageItemArticle.firstChild) {
             messageItemArticle.removeChild(messageItemArticle.firstChild);

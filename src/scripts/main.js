@@ -1,4 +1,5 @@
-
+import messageForm from "./messageForm"
+import messageList from "./messageList";
 import taskForm from "./tasks/taskForm"
 import taskList from "./tasks/taskList"
 import login from "./login"
@@ -14,13 +15,13 @@ if (sessionStorage.userId >= 1) {
     console.log(sessionStorage.userId)
     taskForm.taskFormBuilder();
     taskList.listTasks();
+    messageList.addMessageToDom()
+    messageForm.createAndAppendForm()
     let currentUsername = sessionStorage.getItem("userName")
     let userheader = document.querySelector(".header2")
     userheader.innerHTML = "Welcome " + currentUsername
 }
-import messageForm from "./messageForm"
-import messageList from "./messageList";
 
-messageList.addMessageToDom()
-messageForm.createAndAppendForm()
+
+
 

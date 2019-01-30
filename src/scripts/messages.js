@@ -22,11 +22,13 @@ const message = {
     let editMessageButton = document.createElement("button");
     editMessageButton.textContent = "Edit Message"
     editMessageButton.addEventListener("click", () => {
-        let articleId = event.target.id
+        let articleId = event.target.parentNode.id
+        console.log(articleId)
         let messageId = articleId.split("--")[1]
         messageCollection.getAllMessages(messageId)
         .then(response => {
-            messageEditForm.createAndAppendForm(articleId, response);
+            console.log(response)
+            messageEditForm.createAndAppendForm(articleId.id, response);
         })
     })
 
