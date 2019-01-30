@@ -59,9 +59,18 @@ const API = {
             }
         })
     },
-    getNews() {
+    getAllArticles() {
         return fetch("http://localhost:8088/news")
             .then(res => res.json())
+    },
+    addArticle(articletoSave) {
+        return fetch("http://localhost:8088/news", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(articletoSave)
+        })
     },
 }
 

@@ -1,3 +1,6 @@
+import API from "./api"
+import allNews from "./newsList"
+
 const newsDOM = {
   newsFormCreator() {
     const newsForm = document.querySelector(".output__newsform")
@@ -28,7 +31,7 @@ const newsDOM = {
     const addButton = document.createElement("button")
     addButton.textContent = "Add Article"
     newsField.appendChild(addButton)
-    addButton.addEventListener("click", this.eventHandler);
+    addButton.addEventListener("click", newsDOM.eventHandler);
   },
   eventHandler() {
     let titleInput = document.querySelector("#title_input").value;
@@ -36,11 +39,11 @@ const newsDOM = {
     let summaryInput = document.querySelector("#summary_Input").value;
 
     let newArticle = {
-      title: articleTitle,
-      URL: articleURL,
-      summary: articleSummary
+      title: titleInput,
+      URL: URLInput,
+      summary: summaryInput
     };
-    API.getNews(newArticle)
+    API.addArticle(newArticle)
       .then(response => {
         allNews.getAndAppendNews();
       });
