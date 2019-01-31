@@ -32,13 +32,13 @@ const API = {
         })
       },
 
-      putExistingTaskcomplete(taskcomplete, taskToEdit) {
-        return fetch(`http://localhost:8088/tasks/${taskcomplete}`, {
+      putExistingTaskcomplete(taskId , taskobject) {
+        return fetch(`http://localhost:8088/tasks/${taskId}`, {
           method: "PUT",
           headers: {
               "Content-Type": "application/json"
           },
-          body: JSON.stringify(taskcomplete)
+          body: JSON.stringify(taskobject)
         })
       },
       deleteTask(taskId) {
@@ -50,7 +50,6 @@ const API = {
           })
       },
 
-        // In order to delete an item from the JSON Server API, all we need is the id of the item in order to target it, which is the only argument this method has.
     deleteData(resource) {
         return fetch(`http://localhost:8088/messages/${resource}`, {
         method: "DELETE",
@@ -60,6 +59,5 @@ const API = {
         })
     }
 }
-
 
 export default API

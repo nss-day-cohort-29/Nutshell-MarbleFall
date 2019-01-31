@@ -2,10 +2,8 @@ import API from "../api"
 import taskList from "./taskList"
 
 const taskEditForm = {
-  // This module will build an edit form and append it to the DOM. The form will contain input fields with existing values from the API and an Update button. The user can edit the the values in the input fields. An event listener on the Update button will handle taking the new values entered by the user and calling the API to update the data.
-  createAndAppendForm (articleId, taskObjToEdit) {
+  createAndAppendForm(articleId, taskObjToEdit) {
 
-    // Building the edit form with fields for the name, expiration and type of the food item. Each of the input fields contains the existing values from the database.
     let taskNameField = document.createElement("p")
 
     let taskNameLabel = document.createElement("label")
@@ -28,8 +26,8 @@ const taskEditForm = {
     let updateButton = document.createElement("button")
     updateButton.textContent = "Update"
     updateButton.addEventListener("click", () => {
-    const userId = sessionStorage.getItem("userId");
-    const currentUserId = JSON.parse(userId);
+      const userId = sessionStorage.getItem("userId");
+      const currentUserId = JSON.parse(userId);
       let editedTask = {
         title: taskNameInput.value,
         dueDate: taskDueDateInput.value,
@@ -37,9 +35,9 @@ const taskEditForm = {
         complete: false
       }
       API.putExistingTask(taskObjToEdit.id, editedTask)
-      .then(response => {
-        taskList.listTasks();
-      })
+        .then(response => {
+          taskList.listTasks();
+        })
 
       while (taskItemArticle.firstChild) {
         taskItemArticle.removeChild(taskItemArticle.firstChild);
