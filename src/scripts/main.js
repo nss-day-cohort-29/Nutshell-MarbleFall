@@ -16,6 +16,5 @@ if (sessionStorage.userId >= 1) {
   let currentUsername = sessionStorage.getItem("userName")
 let userheader = document.querySelector(".header2")
 userheader.innerHTML = "Welcome " + currentUsername
-
 }
 

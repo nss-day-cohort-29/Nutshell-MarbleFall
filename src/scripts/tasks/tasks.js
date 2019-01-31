@@ -11,52 +11,54 @@ const tasks = {
     taskCheckBox.className = "checkbox1"
     taskCheckBox.type = "checkbox";
     taskCheckBox.checked = taskObj.complete
-    taskCheckBox.addEventListener("click", () => {
-        if (taskCheckBox = true) {
+    if (taskObj.complete == true) {
+      console.log(taskObj.complete)
+      document.querySelector(".edit").innerHTML = " "
+    }
+      taskCheckBox.addEventListener("click", () => {
+        if (taskObj.complete == true) {
+          console.log(taskObj.complete)
           document.querySelector(".edit").innerHTML = " "
         }
-        window.addEventListener("Load", () => {
-          if (taskCheckBox = true) {
-            console.log("hi")
-            document.querySelector(".edit").innerHTML = " "
-          }
-      taskObj.complete = !taskObj.complete
-      API.putExistingTaskcomplete(taskObj.id, taskObj)
-        .then(response => response.json)
-    })
-    const taskOutputSection = document.createElement("article");
-    taskOutputSection.setAttribute("id", `task--${taskObj.id}`)
-    taskOutputSection.setAttribute("class", "edit")
-    taskArticle.appendChild(taskOutputSection);
+        taskObj.complete = !taskObj.complete
+        API.putExistingTaskcomplete(taskObj.id, taskObj)
+          .then(response => response.json)
+      })
+      const taskOutputSection = document.createElement("article");
+      taskOutputSection.setAttribute("id", `task--${taskObj.id}`)
+      taskOutputSection.setAttribute("class", "edit")
+      taskArticle.appendChild(taskOutputSection);
 
-    taskOutputSection.appendChild(taskName);
-    taskOutputSection.appendChild(taskDueDate);
-    taskOutputSection.appendChild(taskCheckBox);
+      taskOutputSection.appendChild(taskName);
+      taskOutputSection.appendChild(taskDueDate);
+      taskOutputSection.appendChild(taskCheckBox);
 
-    taskDueDate.textContent = taskObj.dueDate;
-    taskName.textContent = taskObj.title;
+      taskDueDate.textContent = taskObj.dueDate;
+      taskName.textContent = taskObj.title;
 
-    const taskEditButton = document.createElement("button");
-    taskOutputSection.appendChild(taskEditButton);
-    taskEditButton.textContent = "Edit";
-    taskEditButton.addEventListener("click", () => {
-      let articleId = event.target.parentNode.id;
-      let taskId = articleId.split("--")[1];
-      API.getTask(taskId)
-        .then(response => {
-          taskEditForm.createAndAppendForm(articleId, response)
-        })
-    })
-    const taskDeleteButton = document.createElement("button");
-    taskOutputSection.appendChild(taskDeleteButton);
-    taskDeleteButton.textContent = "Delete";
-    taskDeleteButton.addEventListener("click", () => {
-      document.querySelector(".output__tasksedit").innerHTML = " "
-      let taskId = event.target.parentNode.id.split("--")[1]
-      API.deleteTask(taskId)
-        .then(response => {
-          taskList.listTasks();
-
-        })})})}}
+      const taskEditButton = document.createElement("button");
+      taskOutputSection.appendChild(taskEditButton);
+      taskEditButton.textContent = "Edit";
+      taskEditButton.addEventListener("click", () => {
+        let articleId = event.target.parentNode.id;
+        let taskId = articleId.split("--")[1];
+        API.getTask(taskId)
+          .then(response => {
+            taskEditForm.createAndAppendForm(articleId, response)
+          })
+      })
+      const taskDeleteButton = document.createElement("button");
+      taskOutputSection.appendChild(taskDeleteButton);
+      taskDeleteButton.textContent = "Delete";
+      taskDeleteButton.addEventListener("click", () => {
+        document.querySelector(".output__tasksedit").innerHTML = " "
+        let taskId = event.target.parentNode.id.split("--")[1]
+        API.deleteTask(taskId)
+          .then(response => {
+            taskList.listTasks();
+          })
+      })
+    }
+  }
 export default tasks
 
