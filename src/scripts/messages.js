@@ -25,10 +25,10 @@ const message = {
         let articleId = event.target.parentNode.id
         console.log(articleId)
         let messageId = articleId.split("--")[1]
-        messageCollection.getAllMessages(messageId)
+        messageCollection.getMessage(messageId)
         .then(response => {
             console.log(response)
-            messageEditForm.createAndAppendForm(articleId.id, response);
+            messageEditForm.createAndAppendForm(response);
         })
     })
 

@@ -4,14 +4,14 @@ import messageList from "./messageList"
 
 const messageEditForm = {
 
-    createAndAppendForm(articleId, messageObjToEdit) {
+    createAndAppendForm(messageObjToEdit) {
 
         let messageNameField = document.createElement("p");
 
         let messageNameLabel = document.createElement("label");
         messageNameLabel.textContent = "Sender  "
         let messageNameInput = document.createElement("input");
-        messageNameInput.value = messageObjToEdit.SenderName
+        messageNameInput.value = messageObjToEdit.senderName
 
         messageNameField.appendChild(messageNameLabel);
         messageNameField.appendChild(messageNameInput);
@@ -21,7 +21,7 @@ const messageEditForm = {
         let messageInputLabel = document.createElement("label");
         messageInputLabel.textContent = "Edit Message  "
         let messageContentInput = document.createElement("textarea");
-        messageContentInput.value = messageObjToEdit.Message
+        messageContentInput.value = messageObjToEdit.message
 
         messageInputField.appendChild(messageInputLabel)
         messageInputField.appendChild(messageContentInput)
@@ -33,9 +33,9 @@ const messageEditForm = {
 
         updateButton.addEventListener("click", () => {
             let editedMessage = {
-              SenderName: messageNameInput.value,
-              Message: messageContentInput.value,
-              Date: messageForm.getTimeStamp()
+              senderName: messageNameInput.value,
+              message: messageContentInput.value,
+              date: messageForm.getTimeStamp()
             }
 
             messageCollection.putExistingMessage(messageObjToEdit.id, editedMessage)
