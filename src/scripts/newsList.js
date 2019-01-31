@@ -1,20 +1,19 @@
 import API from "./api"
+import articleBuilder from "./newsDOM"
 
 const allNews = {
   getAndAppendNews() {
 
     API.getAllArticles()
-      .then(function (newsArticles) {
+      .then(allArticles => {
         let displayContainer = document.querySelector(".output__news");
         displayContainer.textContent = "";
 
-        array.forEach(element => {
 
+
+        allArticles.forEach(article => {
+          articleBuilder.articleFormat(article)
         });
-        // newsArticles.forEach(function (eachArticle) {
-        //   let showArticle = newsDom(eachArticle, String(eachArticle.id));
-        //   displayContainer.appendChild(showArticle);
-        // })
       })
   }
 }

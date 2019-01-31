@@ -1,53 +1,38 @@
-import API from "./api"
-import allNews from "./newsList"
+const articleBuilder = {
+  articleFormat(news) {
+    let newsCard = document.createElement("div")
+    newsCard.setAttribute("id", `news--${news.id}`)
+    let cardTitle = document.createElement("h3")
+    cardTitle.textContent = news.title
+    let cardURL = document.createElement("p")
+    cardURL.textContent = news.url
+    let cardSummary = document.createElement("p")
+    cardSummary.textContent = news.summary
+    let removeButton = document.createElement("button")
+    removeButton.textContent = "REMOVE"
 
-const newsDOM = {
-  newsFormCreator() {
-    const newsForm = document.querySelector(".output__newsform")
-    const newsFormTitle = document.createElement("h3")
-    newsFormTitle.textContent = "News"
-    newsForm.appendChild(newsFormTitle)
 
-    // NEWS FIELD
-    const newsField = document.createElement("fieldset");
-    const titleInput = document.createElement("input");
-    const URLInput = document.createElement("input");
-    const summaryInput = document.createElement("input");
+    let outputNewsArticle = document.querySelector(".output__news")
+    newsCard.appendChild(cardTitle)
+    newsCard.appendChild(cardURL)
+    newsCard.appendChild(cardSummary)
+    newsCard.appendChild(removeButton)
+    outputNewsArticle.appendChild(newsCard)
 
-    titleInput.setAttribute("id", "title_input");
-    titleInput.setAttribute("placeholder", "Title");
+    return newsCard
+  }
+}
 
-    URLInput.setAttribute("id", "URL_Input");
-    URLInput.setAttribute("placeholder", "URL");
+export default articleBuilder
 
-    summaryInput.setAttribute("id", "summary_Input");
-    summaryInput.setAttribute("placeholder", "Summary");
+// TIMESTAMP
+// add to object in the database and create the html tag for it
 
-    newsForm.appendChild(newsField);
-    newsField.appendChild(titleInput)
-    newsField.appendChild(URLInput)
-    newsField.appendChild(summaryInput)
 
-    const addButton = document.createElement("button")
-    addButton.textContent = "Add Article"
-    newsField.appendChild(addButton)
-    addButton.addEventListener("click", newsDOM.eventHandler);
-  },
-  eventHandler() {
-    let titleInput = document.querySelector("#title_input").value;
-    let URLInput = document.querySelector("#URL_Input").value;
-    let summaryInput = document.querySelector("#summary_Input").value;
 
-    let newArticle = {
-      title: titleInput,
-      URL: URLInput,
-      summary: summaryInput
-    };
-    API.addArticle(newArticle)
-      .then(response => {
-        allNews.getAndAppendNews();
-      });
-  },
-};
-export default newsDOM
 
+// ADD DELETE BUTTON
+// make HTML for button, make the "click" event and write the API call
+
+// SORT ENTRIES
+//by timestamp
