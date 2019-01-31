@@ -49,7 +49,6 @@ const API = {
         })
     },
 
-    // In order to delete an item from the JSON Server API, all we need is the id of the item in order to target it, which is the only argument this method has.
     deleteData(resource) {
         return fetch(`http://localhost:8088/messages/${resource}`, {
             method: "DELETE",

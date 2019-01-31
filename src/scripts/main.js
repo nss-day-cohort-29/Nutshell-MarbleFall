@@ -18,6 +18,8 @@ if (sessionStorage.userId >= 1) {
   taskForm.taskFormBuilder();
   taskList.listTasks();
   newsForm.newsFormCreator();
+  messageForm.createAndAppendForm()
+  messageList.addMessageToDom()
   let currentUsername = sessionStorage.getItem("userName")
   let userheader = document.querySelector(".header2")
   userheader.innerHTML = "Welcome " + currentUsername
