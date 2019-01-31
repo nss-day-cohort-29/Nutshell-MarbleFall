@@ -4,6 +4,11 @@ const messageCollection = {
             .then(response => response.json())
     },
 
+    getMessage(messageId) {
+        return fetch(`http://localhost:8088/messages/${messageId}`)
+            .then(response => response.json())
+    },
+
     postNewMessage(newMessageToSave) {
         return fetch("http://localhost:8088/messages", {
             method: "POST",
