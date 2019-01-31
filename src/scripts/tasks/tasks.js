@@ -1,7 +1,6 @@
 import API from "../api"
 import taskEditForm from "./taskEditForm"
 import taskList from "./taskList";
-
 const tasks = {
   taskBuilder(taskObj, taskId, taskToEdit) {
     const taskArticle = document.querySelector(".output__tasksedit")
@@ -11,15 +10,7 @@ const tasks = {
     taskCheckBox.className = "checkbox1"
     taskCheckBox.type = "checkbox";
     taskCheckBox.checked = taskObj.complete
-    if (taskObj.complete == true) {
-      console.log(taskObj.complete)
-      document.querySelector(".edit").innerHTML = " "
-    }
       taskCheckBox.addEventListener("click", () => {
-        if (taskObj.complete == true) {
-          console.log(taskObj.complete)
-          document.querySelector(".edit").innerHTML = " "
-        }
         taskObj.complete = !taskObj.complete
         API.putExistingTaskcomplete(taskObj.id, taskObj)
           .then(response => response.json)
