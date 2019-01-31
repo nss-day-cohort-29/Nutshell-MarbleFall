@@ -1,4 +1,5 @@
 import eventsCollection from "./eventsCollection";
+import eventsList from "./eventsList";
 
 const eventsForm = {
     getAndAppendEvents() {
@@ -75,8 +76,8 @@ const eventsForm = {
 
     eventsCollection.postNewEvent(newEvent)
     .then(response => {
-        console.log("new events!")
         console.log(response)
+        eventsList.eventify()
     })
     }
 }

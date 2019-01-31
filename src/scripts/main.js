@@ -1,4 +1,5 @@
 import eventsForm from "./eventsForm"
+import eventsList from "./eventsList"
 
 
 import taskForm from "./tasks/taskForm"
@@ -22,5 +23,6 @@ userheader.innerHTML = "Welcome " + currentUsername
 
 }
 
-eventsForm.getAndAppendEvents()
+eventsForm.getAndAppendEvents();
+eventsList.eventify();
 
