@@ -25,12 +25,9 @@ const login = {
         registerButton.textContent = ("register");
         outEl.appendChild(loginButton);
         outEl.appendChild(registerButton);
-// Runs the getUserData() function when Login button is clicked.
         loginButton.addEventListener("click", this.getUserData);
-// Runs the replaceWithRegistrationForm() function when Register button is clicked.
         registerButton.addEventListener("click", this.replaceWithRegistrationForm);
     },
-// Gathers data entered into Login input fields. Fetches userdata from API and compares input data with existing user data in API. If input data matches user data in API, runs loadUserSpecificPage(). If input data does not match any user data in API, alert is sent.
     getUserData () {
         const username = userNameInput.value;
         const password = passwordInput.value;
@@ -51,19 +48,14 @@ const login = {
                 } else {
                     usersProcessed ++
                 };
-// This function will load the dashboard for the user that signed in. (Work in Progress)
             function loadUserSpecificPage(userId) {
                     loginPage.style.display = "none";
-                    // console.log(`This is the user page! ${userId}`);
                     const dashboard = document.createElement("h2");
                     const taskContainer = document.querySelector(".output__tasks");
                     dashboard.textContent = "Dashboard";
                     taskContainer.appendChild(dashboard);
 
                     location.reload();
-
-                    // friendsList.getFriendsList()
-
                     taskForm.taskFormBuilder();
                     taskList.listTasks();
 

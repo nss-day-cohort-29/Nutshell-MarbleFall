@@ -1,3 +1,5 @@
+import messageForm from "./messageForm"
+import messageList from "./messageList";
 import taskForm from "./tasks/taskForm"
 import taskList from "./tasks/taskList"
 import login from "./login"
@@ -6,9 +8,9 @@ import logout from "./logout"
 import newsForm from "./newsForm"
 
 if (sessionStorage.userId === undefined) {
-  login.createAndAppendLoginInput();
-  registrationForm.createAndAppendRegistrationForm();
-  console.log(sessionStorage.userId)
+    login.createAndAppendLoginInput();
+    registrationForm.createAndAppendRegistrationForm();
+    console.log(sessionStorage.userId)
 }
 if (sessionStorage.userId >= 1) {
   logout.createAndAppendLogout();
@@ -21,5 +23,3 @@ if (sessionStorage.userId >= 1) {
   userheader.innerHTML = "Welcome " + currentUsername
 
 }
-
-

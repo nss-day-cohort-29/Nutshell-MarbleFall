@@ -27,8 +27,6 @@ const taskEditForm = {
     taskDueDateField.appendChild(taskDueDateInput)
     let updateButton = document.createElement("button")
     updateButton.textContent = "Update"
-
-    // There is an event listener on the Update button which will take the new values in the input fields and build an object for the food item to be edited. Then we make a HTTP PUT request where we target the food item we want to edit by specifying the id in the URL. We also pass the object representing the food item with the new values as data in our HTTP request. Once again, because our data has been modified, we make an HTTP GET request to get all the food items and display them.
     updateButton.addEventListener("click", () => {
     const userId = sessionStorage.getItem("userId");
     const currentUserId = JSON.parse(userId);
